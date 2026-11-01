@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Soundarya G. — Data Analytics portfolio showcasing SQL, Python, Excel, Power BI and data visualization skills." />
+  <title>Soundarya G. | Data Analytics Portfolio</title>
+  <style>
+    :root {
+      --ink: #172033; --muted: #657089; --line: #e6eaf1;
+      --paper: #f7f9fc; --white: #ffffff; --blue: #315efb;
+      --blue-dark: #2348d8; --mint: #dff8ef; --lav: #eceeff;
+      --shadow: 0 18px 50px rgba(24, 39, 75, .08);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0; color: var(--ink); background: var(--paper);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.65;
+    }
+    a { color: inherit; text-decoration: none; }
+    .wrap { width: min(1120px, calc(100% - 44px)); margin: auto; }
+    header {
+      position: sticky; top: 0; z-index: 10; background: rgba(255,255,255,.88);
+      backdrop-filter: blur(14px); border-bottom: 1px solid rgba(230,234,241,.8);
+    }
+    .nav { height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { font-weight: 800; letter-spacing: -.04em; font-size: 1.08rem; }
+    .brand span { color: var(--blue); }
+    nav { display: flex; gap: 25px; color: var(--muted); font-size: .91rem; }
+    nav a:hover { color: var(--blue); }
+    .nav-cta, .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 9px;
+      border-radius: 999px; padding: 11px 18px; font-weight: 700; font-size: .9rem;
+      background: var(--blue); color: white; box-shadow: 0 8px 20px rgba(49,94,251,.18);
+      transition: .2s ease;
+    }
+    .nav-cta:hover, .btn:hover { background: var(--blue-dark); transform: translateY(-1px); }
+    .btn.secondary { background: white; color: var(--ink); border: 1px solid var(--line); box-shadow: none; }
+    .hero { padding: 92px 0 82px; overflow: hidden; }
+    .hero-grid { display: grid; grid-template-columns: 1.25fr .75fr; gap: 60px; align-items: center; }
+    .eyebrow { display: inline-flex; gap: 8px; align-items: center; color: var(--blue); background: #edf1ff; border-radius: 999px; padding: 7px 13px; font-size: .82rem; font-weight: 750; }
+    .dot { width: 7px; height: 7px; background: #23b47e; border-radius: 50%; }
+    h1 { font-size: clamp(2.8rem, 6vw, 5rem); line-height: 1.04; letter-spacing: -.065em; margin: 22px 0 20px; }
+    h1 span { color: var(--blue); }
+    .lead { color: var(--muted); font-size: 1.12rem; max-width: 650px; margin: 0 0 28px; }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; }
+    .hero-card {
+      position: relative; min-height: 360px; padding: 30px; border-radius: 28px;
+      background: linear-gradient(145deg, #e8edff, #f0fbf7); box-shadow: var(--shadow);
+      display: flex; flex-direction: column; justify-content: space-between; overflow: hidden;
+    }
+    .hero-card:before, .hero-card:after { content: ""; position: absolute; border-radius: 50%; opacity: .7; }
+    .hero-card:before { width: 240px; height: 240px; background: #cdd8ff; right: -65px; top: -75px; }
+    .hero-card:after { width: 180px; height: 180px; background: #c9f0df; left: -70px; bottom: -85px; }
+    .monogram { position: relative; z-index: 1; width: 88px; height: 88px; display: grid; place-items: center; border-radius: 25px; background: white; color: var(--blue); font-size: 2rem; font-weight: 850; box-shadow: 0 12px 30px rgba(49,94,251,.12); }
+    .mini-panel { position: relative; z-index: 1; background: rgba(255,255,255,.88); border: 1px solid rgba(255,255,255,.9); border-radius: 18px; padding: 18px; }
+    .mini-label { color: var(--muted); font-size: .78rem; text-transform: uppercase; letter-spacing: .1em; font-weight: 750; }
+    .mini-value { font-size: 1.18rem; font-weight: 800; margin-top: 4px; }
+    .bars { display: flex; align-items: end; gap: 8px; height: 56px; margin-top: 12px; }
+    .bars i { display: block; flex: 1; border-radius: 6px 6px 2px 2px; background: linear-gradient(180deg, #6585ff, #315efb); }
+    .bars i:nth-child(1) { height: 35%; } .bars i:nth-child(2) { height: 57%; } .bars i:nth-child(3) { height: 46%; } .bars i:nth-child(4) { height: 78%; } .bars i:nth-child(5) { height: 65%; } .bars i:nth-child(6) { height: 100%; }
+    section { padding: 78px 0; }
+    .section-head { max-width: 650px; margin-bottom: 34px; }
+    .kicker { color: var(--blue); text-transform: uppercase; letter-spacing: .13em; font-weight: 800; font-size: .76rem; }
+    h2 { font-size: clamp(2rem, 4vw, 3rem); letter-spacing: -.05em; line-height: 1.12; margin: 9px 0 12px; }
+    .section-head p, .muted { color: var(--muted); }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+    .panel { background: var(--white); border: 1px solid var(--line); border-radius: 22px; padding: 27px; box-shadow: 0 8px 26px rgba(24,39,75,.035); }
+    .panel h3 { margin: 0 0 10px; font-size: 1.12rem; letter-spacing: -.02em; }
+    .panel p { color: var(--muted); margin: 0; }
+    .stat-row { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; margin-top: 20px; }
+    .stat { background: var(--paper); padding: 15px; border-radius: 15px; }
+    .stat strong { display: block; font-size: 1.15rem; }
+    .stat span { color: var(--muted); font-size: .78rem; }
+    .skills { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
+    .skill-card { background: white; border: 1px solid var(--line); padding: 22px; border-radius: 19px; }
+    .skill-icon { width: 42px; height: 42px; border-radius: 13px; display: grid; place-items: center; background: var(--lav); color: var(--blue); font-weight: 850; margin-bottom: 14px; }
+    .skill-card:nth-child(2) .skill-icon { background: var(--mint); color: #16845d; }
+    .skill-card:nth-child(3) .skill-icon { background: #fff1df; color: #b66b12; }
+    .skill-card h3 { margin: 0 0 8px; font-size: 1rem; }
+    .tags { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 12px; }
+    .tag { background: #f2f4f8; color: #4d5870; border-radius: 8px; padding: 5px 9px; font-size: .78rem; font-weight: 650; }
+    .project { display: grid; grid-template-columns: .85fr 1.15fr; overflow: hidden; padding: 0; }
+    .project-visual { min-height: 290px; background: linear-gradient(140deg,#1e2f69,#4268e8 62%,#78a4ff); padding: 28px; display: flex; align-items: center; justify-content: center; }
+    .dashboard { width: 100%; max-width: 340px; background: rgba(255,255,255,.96); border-radius: 16px; padding: 16px; box-shadow: 0 18px 45px rgba(10,20,55,.25); }
+    .dash-top { display: flex; justify-content: space-between; font-size: .65rem; font-weight: 800; color: #34405a; margin-bottom: 14px; }
+    .dash-kpis { display: grid; grid-template-columns: repeat(3,1fr); gap: 7px; }
+    .dash-kpi { background: #f2f5fb; padding: 9px 6px; border-radius: 7px; }
+    .dash-kpi b { display: block; color: #315efb; font-size: .8rem; }
+    .dash-kpi small { color: #758098; font-size: .52rem; }
+    .dash-chart { height: 105px; margin-top: 10px; padding: 12px; background: #f7f9fd; border-radius: 8px; display: flex; align-items: end; gap: 8px; }
+    .dash-chart span { flex: 1; background: linear-gradient(180deg,#7794ff,#315efb); border-radius: 4px 4px 0 0; }
+    .dash-chart span:nth-child(1){height:42%}.dash-chart span:nth-child(2){height:60%}.dash-chart span:nth-child(3){height:49%}.dash-chart span:nth-child(4){height:82%}.dash-chart span:nth-child(5){height:70%}.dash-chart span:nth-child(6){height:94%}
+    .project-content { padding: 30px; }
+    .project-content h3 { font-size: 1.45rem; letter-spacing: -.04em; margin: 8px 0 10px; }
+    .project-content p { color: var(--muted); }
+    .project-link { display: inline-flex; color: var(--blue); font-weight: 750; margin-top: 12px; }
+    .timeline { display: grid; gap: 16px; }
+    .role { display: grid; grid-template-columns: 160px 1fr; gap: 24px; padding: 24px; background: white; border: 1px solid var(--line); border-radius: 18px; }
+    .role-type { color: var(--blue); font-size: .82rem; font-weight: 800; }
+    .role h3 { margin: 0 0 4px; font-size: 1.1rem; }
+    .role p { margin: 8px 0 0; color: var(--muted); }
+    .education { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .edu { padding: 22px; background: white; border: 1px solid var(--line); border-radius: 18px; }
+    .edu h3 { margin: 0 0 5px; }
+    .edu p { color: var(--muted); margin: 0; }
+    .contact { background: #17264d; color: white; border-radius: 28px; padding: 46px; display: flex; align-items: center; justify-content: space-between; gap: 30px; }
+    .contact p { color: #c4cce0; max-width: 550px; margin-bottom: 0; }
+    .contact .btn { background: white; color: #17264d; box-shadow: none; white-space: nowrap; }
+    footer { padding: 30px 0; color: var(--muted); font-size: .85rem; display: flex; justify-content: space-between; gap: 15px; }
+    @media (max-width: 800px) {
+      nav { display: none; } .hero { padding: 65px 0; }
+      .hero-grid, .about-grid, .project, .education { grid-template-columns: 1fr; }
+      .hero-card { min-height: 290px; } .skills { grid-template-columns: repeat(2,1fr); }
+      .project-visual { min-height: 240px; } .role { grid-template-columns: 1fr; gap: 8px; }
+      .contact { align-items: flex-start; flex-direction: column; padding: 32px; }
+    }
+    @media (max-width: 520px) {
+      .wrap { width: min(100% - 30px, 1120px); }
+      .nav { height: 64px; } .nav-cta { padding: 9px 13px; font-size: .8rem; }
+      .skills { grid-template-columns: 1fr; } .stat-row { grid-template-columns: 1fr; }
+      section { padding: 58px 0; } footer { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="#home">Soundarya<span>.</span></a>
+      <nav aria-label="Main navigation">
+        <a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#experience">Experience</a><a href="#education">Education</a>
+      </nav>
+      <a class="nav-cta" href="#contact">Get in touch ↗</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="wrap hero-grid">
+        <div>
+          <div class="eyebrow"><span class="dot"></span> Open to Data Analytics opportunities</div>
+          <h1>Hi, I'm<br><span>Soundarya G.</span></h1>
+          <p class="lead">I enjoy turning data into clear insights. With an IT background in software development and technical training, I'm building my career in data analytics using SQL, Python, Excel and BI tools.</p>
+          <div class="actions">
+            <a class="btn" href="#projects">Explore my work ↓</a>
+            <a class="btn secondary" href="https://github.com/soundarya48" target="_blank" rel="noopener">GitHub profile ↗</a>
+          </div>
+        </div>
+        <div class="hero-card" aria-label="Analytics themed illustration">
+          <div class="monogram">SG</div>
+          <div class="mini-panel">
+            <div class="mini-label">My focus</div>
+            <div class="mini-value">Data → Understanding → Decisions</div>
+            <div class="bars"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="kicker">A little about me</div>
+          <h2>Curious about data.<br>Focused on useful answers.</h2>
+          <p>I bring together technical experience, a practical mindset and a genuine interest in finding patterns that help explain what is happening in a business.</p>
+        </div>
+        <div class="about-grid">
+          <div class="panel">
+            <h3>My journey</h3>
+            <p>I'm an MCA graduate with close to two years of experience across software development and technical training. Working with applications, databases and learners has strengthened my problem-solving, communication and ability to explain technical ideas clearly. I'm now focused on applying these strengths to data analytics.</p>
+          </div>
+          <div class="panel">
+            <h3>What I bring</h3>
+            <p>A foundation in databases and programming, experience collaborating on technical projects, and a willingness to learn. I enjoy exploring datasets, asking questions, and presenting information in a way that is easy to understand.</p>
+            <div class="stat-row">
+              <div class="stat"><strong>SQL</strong><span>Querying & databases</span></div>
+              <div class="stat"><strong>Python</strong><span>Data handling</span></div>
+              <div class="stat"><strong>BI</strong><span>Visual storytelling</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="kicker">Technical toolkit</div>
+          <h2>Skills I work with</h2>
+          <p>My current toolkit combines data preparation, database knowledge and visual reporting.</p>
+        </div>
+        <div class="skills">
+          <article class="skill-card"><div class="skill-icon">SQL</div><h3>Databases & Querying</h3><p class="muted">Working with relational data and structured queries.</p><div class="tags"><span class="tag">SQL</span><span class="tag">MySQL</span><span class="tag">MongoDB</span></div></article>
+          <article class="skill-card"><div class="skill-icon">Py</div><h3>Python for Data</h3><p class="muted">Exploring, cleaning and working with datasets.</p><div class="tags"><span class="tag">Python</span><span class="tag">Pandas</span><span class="tag">NumPy</span><span class="tag">Matplotlib</span></div></article>
+          <article class="skill-card"><div class="skill-icon">BI</div><h3>Reporting & Visualization</h3><p class="muted">Presenting information through clear reports and visuals.</p><div class="tags"><span class="tag">Power BI</span><span class="tag">Tableau</span><span class="tag">Excel</span></div></article>
+          <article class="skill-card"><div class="skill-icon">◎</div><h3>Data Analysis</h3><p class="muted">A structured approach to understanding data and questions.</p><div class="tags"><span class="tag">Data Cleaning</span><span class="tag">Exploratory Analysis</span><span class="tag">Visualization</span></div></article>
+          <article class="skill-card"><div class="skill-icon">JS</div><h3>Development Background</h3><p class="muted">Understanding how applications and data systems work.</p><div class="tags"><span class="tag">JavaScript</span><span class="tag">Node.js</span><span class="tag">React</span></div></article>
+          <article class="skill-card"><div class="skill-icon">✦</div><h3>Professional Skills</h3><p class="muted">Skills developed through project work and training.</p><div class="tags"><span class="tag">Problem-solving</span><span class="tag">Communication</span><span class="tag">Teamwork</span></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="kicker">Selected work</div>
+          <h2>Projects & practical work</h2>
+          <p>A project-led view of how I apply technology and analysis to practical questions.</p>
+        </div>
+        <article class="panel project">
+          <div class="project-visual">
+            <div class="dashboard">
+              <div class="dash-top"><span>FEASIBILITY OVERVIEW</span><span>DATA VIEW</span></div>
+              <div class="dash-kpis">
+                <div class="dash-kpi"><b>01</b><small>INPUTS</small></div>
+                <div class="dash-kpi"><b>02</b><small>ANALYSIS</small></div>
+                <div class="dash-kpi"><b>03</b><small>INSIGHTS</small></div>
+              </div>
+              <div class="dash-chart"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+            </div>
+          </div>
+          <div class="project-content">
+            <div class="kicker">Data analytics project</div>
+            <h3>Areca Plate Feasibility Dashboard</h3>
+            <p>A project focused on presenting feasibility-related information through a dashboard. It reflects my interest in organizing information, making key indicators easier to understand, and supporting data-informed decisions.</p>
+            <div class="tags"><span class="tag">Dashboard</span><span class="tag">Data Visualization</span><span class="tag">Business Insights</span></div>
+            <a class="project-link" href="https://github.com/soundarya48/areca-plate-feasibility-dashboard" target="_blank" rel="noopener">View project on GitHub ↗</a>
+          </div>
+        </article>
+        <p class="muted" style="font-size:.88rem;margin-top:14px">More project case studies can be added as you complete and publish them. Dashboard visuals above are an illustrative portfolio graphic, not a screenshot of the live project.</p>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="kicker">Professional background</div>
+          <h2>Experience that shaped how I work</h2>
+          <p>My experience in development and training has given me a strong technical foundation and a people-focused approach.</p>
+        </div>
+        <div class="timeline">
+          <article class="role">
+            <div class="role-type">Software & Training</div>
+            <div><h3>Software Developer & Technical Trainer — Yellowmatics.ai</h3><p>Worked across software development and technical training in an edtech environment. Contributed to projects including Nexus Attendance Tracer and Alisa Online Test Platform, and supported learners in building technical skills. Worked with technologies including MongoDB, Express.js, React.js, Node.js and MySQL.</p></div>
+          </article>
+          <article class="role">
+            <div class="role-type">Early Career</div>
+            <div><h3>Junior Full Stack Developer — Konnectify</h3><p>Worked on WAJAX, a ticket registration system, using JavaScript, Node.js and MySQL. This experience helped build my understanding of application workflows, backend logic and database interactions.</p></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="education">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="kicker">Education</div>
+          <h2>Academic foundation</h2>
+        </div>
+        <div class="education">
+          <article class="edu"><div class="kicker">Postgraduate</div><h3>Master of Computer Applications (MCA)</h3><p>Sengunthar Engineering College, Erode · Completed 2025</p></article>
+          <article class="edu"><div class="kicker">Undergraduate</div><h3>B.Sc. Computer Technology</h3><p>Kongu Engineering College</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="wrap">
+        <div class="contact">
+          <div><div class="kicker" style="color:#9eb2ff">Let's connect</div><h2 style="margin:8px 0 10px">Have a data challenge<br>or an opportunity?</h2><p>I'm interested in Data Analyst and Data Analytics opportunities where I can contribute, learn and grow with the team.</p></div>
+          <a class="btn" href="https://github.com/soundarya48" target="_blank" rel="noopener">Connect on GitHub ↗</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="wrap"><span>© <span id="year"></span> Soundarya G. · Data Analytics Portfolio</span><span>Designed to grow with my work.</span></footer>
+  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+</html>
